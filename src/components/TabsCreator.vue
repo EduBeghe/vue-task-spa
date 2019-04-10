@@ -60,6 +60,9 @@
 				this.title = null;
 				this.quantity = 0;
 				this.unit_cost = 0;
+			},
+			submit() {
+				//TODO
 			}
 		}
   	}
