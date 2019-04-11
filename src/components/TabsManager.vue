@@ -33,14 +33,16 @@
         },
 		components: {
 			TabsCreator
+		},
+		created() {
+			this.$toastr('success', 'i am a toastr success', 'hello')
 		}
     }
 </script>
 <style scoped>
 	.tabContainer {
-		padding-top: 30px;
-		padding-bottom: 30px;
-		width: 20%;
+		padding: 30px;
+		width: 25%;
 		margin: 0 auto;
 		text-align: left;
 	}

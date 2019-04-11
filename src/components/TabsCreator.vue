@@ -12,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<label for="new_quantity">Quantity</label>
-			<input type="number" class="form-control" id="new_quantity" v-model="quantity">
+			<input type="number" min="0" step="1" class="form-control" id="new_quantity" v-model="quantity">
 		</div>
 		<div class="form-group">
 			<label for="new_cost">Unit Cost</label>
