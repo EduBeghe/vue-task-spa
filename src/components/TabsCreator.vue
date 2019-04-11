@@ -29,7 +29,7 @@
 		</div>
 		<div class="float-right">
 			<button type="submit" class="btn btn-danger" v-on:click="clear">Clear</button>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" v-on:click="submit">Submit</button>
 		</div>
 	</div>
 </template>
@@ -61,8 +61,29 @@
 				this.quantity = 0;
 				this.unit_cost = 0;
 			},
+			saveNewTab() {
+				let tabs = JSON.parse(localStorage.getItem('tabs'));
+				if (!tabs) {
+					tabs = [];
+				}
+				tabs.push({
+					title: this.title,
+					service: this.service,
+					quantity: this.quantity,
+					unit_cost: this.unit_cost
+				})
+				const parsed = JSON.stringify(tabs);
+				localStorage.setItem('tabs', parsed);
+				this.$emit('created');
+			},
 			submit() {
-				//TODO
+				if (!this.title) {
+					this.$toastr('error', 'The title is required', 'Validation');
+				} else if (!this.service) {
+					this.$toastr('error', 'The service is required', 'Validation');
+				} else {
+					this.saveNewTab();
+				}
 			}
 		}
   	}
